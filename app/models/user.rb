@@ -11,4 +11,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          validates :username, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false, format: { with: /\A[a-zA-Z0-9]+\z/ }
-end
+         
+         has_many :tweets, dependent: :destroy
+  end
